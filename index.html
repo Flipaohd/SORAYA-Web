@@ -945,6 +945,7 @@ function doLogin(){
   }
 }
 
+// ═══ GUARD...
 function openAdminPanel(){
   document.getElementById('adminOvl').classList.add('open');
   renderAdminProducts();
@@ -1186,7 +1187,6 @@ function saveSettings(){
   
   localStorage.setItem('soraya_settings', JSON.stringify(settings));
   
-  // Actualizar en tiempo real el DOM visible de las páginas públicas
   if(settings.tel) document.getElementById('cTel').textContent = settings.tel;
   if(settings.email) document.getElementById('cEmail').textContent = settings.email;
   if(settings.dir) document.getElementById('cDir').textContent = settings.dir;
@@ -1198,7 +1198,6 @@ function saveSettings(){
   showToast("✓ Ajustes de la tienda guardados");
 }
 
-// Historial de pedidos recibidos
 function renderAdminOrders(){
   var orderWrap = document.getElementById('adminOrdersList');
   if(!orderWrap) return;
@@ -1237,7 +1236,6 @@ function clearOrders(){
   showToast("✓ Historial limpiado");
 }
 
-// ── EXPORTADOR DEL CODIGO COMPLETO (SISTEMA DE COPIA) ─────────────────
 function downloadBackupHTML(){
   showToast('Generando copia comprimida de la web...');
   setTimeout(function(){
@@ -1270,7 +1268,6 @@ function showToast(msg){
 renderGrid('homeGrid', null, 8);
 updateBadge();
 
-// Aplicar configuraciones guardadas al cargar en la interfaz
 if(settings.tel) document.getElementById('cTel').textContent = settings.tel;
 if(settings.email) document.getElementById('cEmail').textContent = settings.email;
 if(settings.dir) document.getElementById('cDir').textContent = settings.dir;
@@ -1282,4 +1279,3 @@ if(settings.titular) document.getElementById('bankTitular').textContent = settin
 
 </body>
 </html>
-
